@@ -42,13 +42,15 @@ public class CodeDownload {
         else throw new Exception("System not supported");
 
 
-        URL resource = classLoader.getResource("resources" + File.separator + driverFile);
+        //URL resource = classLoader.getResource("resources" + File.separator + driverFile);
         File driver = new File(driverFile);
 
-        if (!driver.exists()) {
+        /*if (!driver.exists()) {
             driver.createNewFile();
             copyURLToFile(resource, driver);
-        }
+        }*/
+        
+        driver.setExecutable(true);
         System.setProperty("webdriver.gecko.driver", driver.getAbsolutePath());
     }
 
